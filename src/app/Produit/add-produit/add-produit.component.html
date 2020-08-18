@@ -1,0 +1,30 @@
+<div class="container-fluid align-content-center" style="margin: 10%; width: 80%">
+  <div class="row">
+    <div class="col side-form">
+
+      <form action="/action_page.php" #formulaire="ngForm">
+        <label for="nom">Nom</label><br>
+        <input    type="text" id="nom" ngModel name="nom" placeholder="nom" class="form-control" required="required"  >
+
+
+
+
+        <label for="prix">Prix</label><br>
+        <input  type="text" id="prix" ngModel name="prix" placeholder="prix" class="form-control" required="required">
+
+
+        <label for="quantite">Quantité</label><br>
+        <input  type="text" id="quantite" ngModel name="quantite" placeholder="quantite" class="form-control" required="required" >
+      </form>
+      <hr />
+      <div class="container row">
+        <div class="col-md-12">
+          <div *ngIf=message>{{message}}</div>
+        </div>
+      </div>
+      <button class="submite-form" [disabled]="formulaire.invalid" (click)="addProduit(formulaire)">Envoyer</button>
+
+    </div>
+  </div>
+
+</div>

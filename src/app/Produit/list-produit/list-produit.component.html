@@ -1,0 +1,57 @@
+
+
+<!-- Page content -->
+<div class="container-fluid mt--7" style=" margin-top: 200px;">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row">
+            <h3 class="col" style="height: 100%">Produits</h3>
+            <div class="col" >
+              <button type="button" id="right" class=" col offset-md-5 btn btn-primary" style="height: 100%; width: 50%"  (click)="ajouteProduit()">Ajouter un produit</button>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Prix</th>
+              <th scope="col">Quantité</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let produit of produits">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <span class="mb-0 text-sm"><a href="produit/{{produit._id}}">{{produit.nom}}</a></span>
+                  </div>
+                </div>
+              </th>
+              <td >
+                {{produit.prix}}
+              </td>
+              <td  >
+                {{produit.quantite}}
+              </td>
+              <td>
+                <div class="row" style="padding-left: 50%; ">
+                    <button class="btn-danger" style="margin-right: 10%" (click)="deleteProduit(produit._id)">DELETE</button>
+
+                    <button class="btn-success" (click)="updateRouter(produit._id)">UPDATE</button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
