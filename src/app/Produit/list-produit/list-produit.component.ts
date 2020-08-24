@@ -19,7 +19,7 @@ export class ListProduitComponent implements OnInit {
   }
 
   private reloadListProduit() {
-      this.produitsServicesService.getListdesProduits().subscribe(
+      this.produitsServicesService.getListdesProduits( ).subscribe(
         (data) => {this.produits = data ; },
       (err) => {alert(err.toString()); }
       );
@@ -37,5 +37,12 @@ public deleteProduit(id) {
 
   ajouteProduit() {
     this.router.navigate(['/ajoute-produit']);
+  }
+
+  search(inputSerach) {
+    this.produitsServicesService.getProduitByName(inputSerach.value).subscribe(
+        (data) => {this.produits = data; },
+        (err) => {alert(err.toString()); console.log(err); }
+      );
   }
 }

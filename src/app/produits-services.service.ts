@@ -10,9 +10,9 @@ export class ProduitsServicesService {
 
   constructor(private http: HttpClient) { }
 
-  public getListdesProduits(): Observable<any> {
+  public getListdesProduits( ): Observable<any> {
     // const params = new HttpParams().set('matricule', matricule);
-    return this.http.get(`${this.URL}`);
+    return this.http.get(`${this.URL}` );
   }
 
   public getProduitById(id): Observable<any> {
@@ -27,4 +27,7 @@ export class ProduitsServicesService {
   public updateproduitById(id, produit): Observable<any> {
     return this.http.put(`${this.URL}/${id}`, produit);
   }
-}
+   public getProduitByName(nom): Observable<any> {
+      return this.http.get(`${this.URL}?nom=${nom}` );
+    }
+ }
